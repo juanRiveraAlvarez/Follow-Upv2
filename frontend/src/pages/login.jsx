@@ -15,8 +15,18 @@ const Login = () => {
         <div>
             <form onSubmit={Service}>
                 <div className="container">
-                    <input type="email" placeholder="Enter Email" name="email" required />
-                    <input type="password" placeholder="Enter Password" name="psw" required />
+                    <input 
+                            type="email" 
+                            placeholder="Enter Email" 
+                            name="email" 
+                            value={mail}
+                            onChange={(e) => setMail(e.target.value)} required />
+                    <input 
+                            type="password" 
+                            placeholder="Enter Password" 
+                            name="psw" 
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}required />
                     <button type="submit">Login</button>
                 </div>
             </form>
