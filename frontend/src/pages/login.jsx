@@ -7,8 +7,9 @@ const Login = () => {
     const [mail, setMail] = useState("");
     const [password, setPassword] = useState("");
 
-    const Service = () => {
-        LoginService(mail, password)
+    const Service = (event) => {
+        event.preventDefault();
+        LoginService(mail, password);
     }
 
     return (
