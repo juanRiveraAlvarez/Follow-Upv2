@@ -2,13 +2,14 @@ package com.followup.backend.controllers;
 
 import com.followup.backend.domain.User;
 import com.followup.backend.service.UserService;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.extern.slf4j.Slf4j;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @Slf4j
 public class UsersController {
@@ -17,9 +18,21 @@ public class UsersController {
     private UserService userService;
 
     @GetMapping("/login/{mail}/{password}")
-    public String login(User user){
-        User response = userService.searchUser(user);
-        return response.getMail()+response.getPassword();
+    public void login(User user){
+        userService.searchUser(user);
+        System.out.println("Hola mundo");
+        //UserResponse userResponse = new UserResponse();
+        /*String response = userService.searchUser(user);
+        if( response == "encontrado"){
+            userResponse.setStatus(true);
+            userResponse.setMessage(response);
+            return userResponse;
+        }else{
+            userResponse.setStatus(false);
+            userResponse.setMessage(response);
+            return userResponse;
+        }*/
+        
     }
 
     @GetMapping("/register/{mail}/{password}/{userName}")
