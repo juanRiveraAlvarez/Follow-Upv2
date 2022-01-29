@@ -1,11 +1,13 @@
 package com.followup.backend.controllers;
-
+import java.util.*;
 import com.followup.backend.domain.User;
+import com.followup.backend.response.UserResponse;
 import com.followup.backend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -18,12 +20,11 @@ public class UsersController {
     private UserService userService;
 
     @GetMapping("/login/{mail}/{password}")
-    public void login(User user){
-        userService.searchUser(user);
-        System.out.println("Hola mundo");
-        //UserResponse userResponse = new UserResponse();
-        /*String response = userService.searchUser(user);
-        if( response == "encontrado"){
+    public List<User> login(User user){
+        
+        UserResponse userResponse = new UserResponse();
+        return userService.findByMail(user);
+        /*if( response == "encontrado"){
             userResponse.setStatus(true);
             userResponse.setMessage(response);
             return userResponse;
@@ -32,7 +33,6 @@ public class UsersController {
             userResponse.setMessage(response);
             return userResponse;
         }*/
-        
     }
 
     @GetMapping("/register/{mail}/{password}/{userName}")
