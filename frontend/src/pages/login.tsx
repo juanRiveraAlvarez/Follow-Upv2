@@ -4,17 +4,17 @@ import '../style/login.css';
 
 const Login = () => {
 
-    const [mail, setMail] = useState("");
-    const [password, setPassword] = useState("");
+    const [mail, setMail] = useState<string>("");
+    const [password, setPassword] = useState<string>("");
 
-    const Service = (event) => {
+    const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
         LoginService(mail, password);
     }
 
     return (
-        <div>
-            <form onSubmit={Service}>
+        <>
+            <form onSubmit={handleSubmit}>
                 <div className="container">
                     <input 
                             type="email" 
@@ -31,7 +31,7 @@ const Login = () => {
                     <button type="submit">Login</button>
                 </div>
             </form>
-        </div>
+        </>
     )
 }
 
