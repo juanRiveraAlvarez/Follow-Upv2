@@ -18,7 +18,7 @@ public class UserServiceImp implements UserService {
     @Transactional(readOnly = true)
     public List<User> findByMail(User user){
         return userDao.findByMail(user.getMail());
-    }
+    } 
 
     @Override
     @Transactional
