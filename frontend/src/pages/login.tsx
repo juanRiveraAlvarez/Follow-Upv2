@@ -16,18 +16,24 @@ const Login = () => {
         <>
             <form onSubmit={handleSubmit}>
                 <div className="container">
-                    <input 
-                            type="email" 
-                            placeholder="Enter Email" 
-                            name="email" 
-                            value={mail}
-                            onChange={(e) => setMail(e.target.value)} required />
-                    <input 
-                            type="password" 
-                            placeholder="Enter Password" 
-                            name="psw" 
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}required />
+                  <div>Hola</div>
+                  <div>Hola</div>
+                  <div>
+                    <p>Hola esto es un texto</p>
+                    <form></form>
+                  </div>
+                    <input
+                        type="email"
+                        placeholder="Enter Email"
+                        name="email"
+                        value={mail}
+                        onChange={(e) => setMail(e.target.value)} required />
+                    <input
+                        type="password"
+                        placeholder="Enter Password"
+                        name="psw"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)} required />
                     <button type="submit">Login</button>
                 </div>
             </form>
