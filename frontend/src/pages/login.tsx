@@ -16,12 +16,6 @@ const Login = () => {
         <>
             <form onSubmit={handleSubmit}>
                 <div className="container">
-                  <div>Hola</div>
-                  <div>Hola</div>
-                  <div>
-                    <p>Hola esto es un texto</p>
-                    <form></form>
-                  </div>
                     <input
                         type="email"
                         placeholder="Enter Email"
