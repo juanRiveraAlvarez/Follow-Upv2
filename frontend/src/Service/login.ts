@@ -1,10 +1,16 @@
 import axios from 'axios';
 import config from '../config/constantes';
 
-const LoginService = async(mail,password)=>{
-    const {data} = await axios.get(config.SERVER.URL+'login'+'/'+mail+'/'+password);
-    console.log(config.SERVER.URL+'login'+'/'+mail+'/'+password)
-    console.log(data.message)
+const LoginService = async(mail:string,password:string)=>{
+  try{
+    const {data} = await axios.post(config.SERVER.URL+'auth',{
+      "email": mail,
+      "password": password,
+    });
+    return data
+  }catch(error){
+    return "not found"
+  }
 }
 
 export default LoginService;

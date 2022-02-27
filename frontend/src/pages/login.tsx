@@ -7,9 +7,9 @@ const Login = () => {
     const [mail, setMail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
 
-    const handleSubmit = (event: React.FormEvent) => {
+    const handleSubmit = async(event: React.FormEvent) => {
         event.preventDefault();
-        LoginService(mail, password);
+        const data: object = await LoginService(mail, password);  
     }
 
     return (
