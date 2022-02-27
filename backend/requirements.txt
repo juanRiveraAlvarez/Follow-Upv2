@@ -1,0 +1,5 @@
+djangorestframework
+pymysql
+django-cors-headers
+bcrypt
+pyjwt
