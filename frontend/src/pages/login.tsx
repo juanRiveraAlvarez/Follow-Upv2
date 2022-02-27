@@ -1,15 +1,27 @@
 import React, { useState } from 'react';
-import LoginService from '../Service/login';
+import axios from 'axios';
+import cookie from 'universal-cookie';
+
+import config from '../config/constantes';
 import '../style/login.css';
+
 
 const Login = () => {
 
     const [mail, setMail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
 
+    const cookies = new cookie();
+
     const handleSubmit = async(event: React.FormEvent) => {
         event.preventDefault();
-        const data: object = await LoginService(mail, password);  
+        const {status, data} = await axios.post(config.SERVER.URL+'auth',{
+            "email": mail,
+            "password": password,
+        });
+        if (status == 202){
+          cookies.set('token',data.token);
+        }
     }
 
     return (
